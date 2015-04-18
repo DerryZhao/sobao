@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417155239) do
+ActiveRecord::Schema.define(version: 20150418151520) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "name",       limit: 50,    default: ""
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20150417155239) do
   end
 
   add_index "articles", ["sector_id"], name: "index_articles_on_sector_id", using: :btree
+
+  create_table "kindeditor_assets", force: :cascade do |t|
+    t.string   "asset",      limit: 255
+    t.integer  "file_size",  limit: 4
+    t.string   "file_type",  limit: 255
+    t.integer  "owner_id",   limit: 4
+    t.string   "asset_type", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sectors", force: :cascade do |t|
     t.string   "name",           limit: 255
