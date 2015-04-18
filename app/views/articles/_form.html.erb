@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-sm-8">
+    <%= form_for @article, :html => { :class => "form-horizontal article" } do |f| %>
+      <div class="control-group">
+        <%= f.label '标题:', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :name, :class =>'form-control'%>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label '分类:', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.select :sector_id,Sector.all.collect{|u| [u.name,u.id]}.insert(0,['请选择',0]), :class =>'form-control'%>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label '内容:', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.kindeditor :content%>
+        </div>
+      </div>
+
+      <%= f.submit '提交', :class => 'btn btn-primary' %>
+      <%= link_to '取消',articles_path, :class => 'btn btn-default' %>
+    <% end %>
+    <div class="col-sm-4">
+    </div>
+</div>

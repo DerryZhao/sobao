@@ -1,0 +1,11 @@
+<%@articles.each do |article|%>
+    <div class="col-sm-12">
+      <div class="thumbnail">
+        <div class="caption">
+         <h3><%=article.name%></h3>
+         <p><%=truncate(ignore_html(article.content) ,:length=>170)%></p>
+         <p><%=link_to '阅读原文',v1_article_path(article),class:"btn btn-primary",role:"button"%></p>
+        </div>
+      </div>
+    </div>
+<%end%>

@@ -1,0 +1,1 @@
+#ruby2.0.0 and rails 4.2.1

@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h4>分类列表</h4>
+</div>
+<table class="table table-striped">
+  <caption>
+        <div class="row">
+            <div class="col-sm-6" align="left">
+              <%=link_to '分类列表',sectors_path, :class => 'btn btn-default' %>
+            </div>
+            <div class="col-sm-6" align="right">
+              <%= link_to '新建分类', new_sector_path,:class => 'btn btn-primary'%>
+            </div>
+        </div>
+  </caption>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>权值</th>
+      <th>创建时间</th>
+      <th>管理</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sectors.each do |sector| %>
+      <tr>
+        <td><%= link_to sector.name, sector_path(sector)%></td>
+        <td><%= sector.rank %></td>
+        <td><%= sector.created_at %></td>
+        <td>
+          <%= link_to '编辑',edit_sector_path(sector), :class => 'btn btn-default btn-xs' %>
+          <%= link_to '删除',sector_path(sector),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

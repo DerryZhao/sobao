@@ -1,0 +1,38 @@
+<%= form_for @sector, :html => { :class => "form-horizontal sector" } do |f| %>
+
+    <% if @sector.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@sector.errors.count, "error") %> prohibited this sector from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @sector.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@sector[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :rank, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :rank, :class => 'form-control' %>
+    </div>
+    <%= error_span(@sector[:rank]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            sectors_path, :class => 'btn btn-default' %>
+
+<% end %>

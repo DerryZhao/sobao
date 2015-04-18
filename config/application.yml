@@ -1,0 +1,15 @@
+defaults: &defaults
+  cool:
+    saweet: nested settings
+  neat_setting: 24
+
+development:
+  <<: *defaults
+  neat_setting: 800
+
+test:
+  <<: *defaults
+
+production:
+  secret_key_base: b7bd5488b7b511c78abdb46f56a7bf240744955e3779841df63fbd4b123378014b59f2b87b4eb93515757ea0824a27d2b568ba50142ff31e4a0a0c8a712bc85e
+  <<: *defaults 	
