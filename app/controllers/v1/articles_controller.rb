@@ -7,6 +7,7 @@ class V1::ArticlesController < ApplicationController
   end
 
   def show
+    @title = @article.name
   end
   
   private

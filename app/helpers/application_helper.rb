@@ -18,4 +18,8 @@ module ApplicationHelper
 	   end
        str.html_safe
 	end
+	#title_for_page
+	def show_title(title='')
+	  title.blank? ? '好博文' : title
+	end
 end
