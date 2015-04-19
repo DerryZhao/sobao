@@ -1,11 +1,15 @@
 <div class="blog-post">
     <%@articles.each do |article|%>
-      <h3 ><%=article.name%></h3>
+      <h3 ><%=link_to article.name, v1_article_path(article)%></h3>
       <p class="blog-post-meta">
-      	<small>发布时间:</small> 
+      	<small>分类:&nbsp;</small>
+      	<strong><%=article.sector.name%></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+      </p>
+      <p>
+      	<%=truncate(ignore_html(article.content) ,:length=>200)%><br>
+      	<small>发布时间:&nbsp;</small> 
       	<%=article.created_at.strftime('%Y-%m-%d %H:%M')%>
       </p>
-      <p><%= raw article.content%></p>
     <%end%>
 </div>
 <nav>
