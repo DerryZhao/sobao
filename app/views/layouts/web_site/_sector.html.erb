@@ -1,0 +1,11 @@
+<div class="sidebar-module sidebar-module-inset">
+  <h4>分类导航</h4>
+  <ol class="list-unstyled">
+    <%Sector.order('rank desc').each do |s|%>
+      <li>
+        <%=link_to s.name.capitalize,'#'%>
+        (<%=s.articles_count%>)
+      </li>
+    <%end%>
+  </ol>
+</div>

@@ -1,11 +1,13 @@
-<%@articles.each do |article|%>
-    <div class="col-sm-12">
-      <div class="thumbnail">
-        <div class="caption">
-         <h3><%=article.name%></h3>
-         <p><%=truncate(ignore_html(article.content) ,:length=>170)%></p>
-         <p><%=link_to '阅读原文',v1_article_path(article),class:"btn btn-primary",role:"button"%></p>
-        </div>
-      </div>
-    </div>
-<%end%>
+<div class="blog-post">
+    <%@articles.each do |article|%>
+      <h3 ><%=article.name%></h3>
+      <p class="blog-post-meta">
+      	<small>发布时间:</small> 
+      	<%=article.created_at.strftime('%Y-%m-%d %H:%M')%>
+      </p>
+      <p><%= raw article.content%></p>
+    <%end%>
+</div>
+<nav>
+  <%= will_paginate @articles,:previous_label=>'上一页',:next_label=>'下一页',renderer: BootstrapPagination::Rails%>
+</nav>

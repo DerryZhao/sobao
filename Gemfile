@@ -30,7 +30,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails-i18n'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+#gem 'kaminari'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'capistrano',  '~> 3.1'

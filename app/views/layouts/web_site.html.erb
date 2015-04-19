@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="baidu-site-verification" content="LPpZdBPAnF" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "好博文" %></title>
     <%= csrf_meta_tags %>
@@ -38,58 +39,32 @@
 
     <%= javascript_include_tag "application" %>
   </head>
+
   <body>
-
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%=link_to '好博文',root_path,class:'navbar-brand'%>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%=link_to '关于',root_path%></li>
-            <li><%=link_to '联系',root_path%></li>
-            <li><%=link_to '管理',root_path%></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
+    <%=render 'layouts/web_site/header'%>
     <div class="container">
+      <div class="blog-header">
+        <h1 class="blog-title">好博文</h1>
+        <p class="lead blog-description"></p>
+      </div>
       <div class="row">
-        <div class="col-lg-9 main-content">
-          <%= bootstrap_flash %>
+        <div class="col-sm-8 blog-main">
           <%= yield %>
         </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3>文章分类</h3>
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "ruby", "/path1"  %></li>
-              <li><%= link_to "rails", "/path2"  %></li>
-              <li><%= link_to "mysql", "/path3"  %></li>
-            </ul>
-          </div><!--/.well -->
-          <div class="well sidebar-nav">
-            <h3>文章分类</h3>
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "ruby", "/path1"  %></li>
-              <li><%= link_to "rails", "/path2"  %></li>
-              <li><%= link_to "mysql", "/path3"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-      </div><!--/row-->
-      <footer>
-        <p>&copy; Company 2015</p>
-      </footer>
-
-    </div> <!-- /container -->
-
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <%=render 'layouts/web_site/about'%>
+          <%=render 'layouts/web_site/sector'%>
+          <%=render 'layouts/web_site/friendly_link'%>
+        </div>
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+    <footer class="blog-footer">
+      <p>
+        &copy; Company 2015 <a href="#">@zhq</a>. All Rights Reserved
+      </p>
+      <p>
+        <a href="#">回到顶部</a>
+      </p>
+    </footer>
   </body>
 </html>
