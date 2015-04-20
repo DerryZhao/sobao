@@ -6,7 +6,7 @@
       	<strong><%=article.sector.name%></strong>
       </p>
       <p>
-      	<%=truncate(ignore_html(article.content) ,:length=>200)%><br>
+      	<%=truncate((article.content).html_safe ,:length=>70)%><br>
       </p>
       <p class="blog-post-meta">
       	<small>发布时间:&nbsp;</small> 
