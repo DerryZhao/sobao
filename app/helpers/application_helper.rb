@@ -1,7 +1,7 @@
 module ApplicationHelper
 	#忽略html标签
 	def ignore_html(html)
-		html.gsub(/<\/?.*?>/,"")
+		html.gsub(/<\/?.*?>/,"").gsub(/<(?!a\b)[^ >]*>/,'')
 	end
 	#menu_helper
 	def menu_item(code)
