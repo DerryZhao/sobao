@@ -8,10 +8,20 @@
       <p>
       	<%=truncate(ignore_html(article.content) ,:length=>130)%><br>
       </p>
-      <p class="blog-post-meta">
-      	<small>发布时间:&nbsp;</small> 
-      	<%=article.created_at.strftime('%Y-%m-%d %H:%M')%>
-      </p>
+      <div class = row>
+        <div class="col-md-4 blog-post-meta">
+        	<small>发布时间:&nbsp;</small> 
+        	<%=article.created_at.strftime('%Y-%m-%d %H:%M')%>
+        </div>
+        <div class="col-md-8 blog-post-meta">
+          <small>浏览量</small> 
+          (<%=article.hit_count%>)
+        </div>
+        <!-- <div class="col-md-4 blog-post-meta ">
+          <small>评论数</small> 
+          (<%=article.hit_count%>)
+        </div> -->
+      </div>
     <%end%>
 </div>
 <nav>

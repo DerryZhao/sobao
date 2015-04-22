@@ -3,10 +3,15 @@ Rails.application.routes.draw do
 
   resources :sectors
   namespace :v1 do
-    resources :articles,:only=>[:index,:show]
+    resources :articles,:only=>[:index,:show] do
+      collection do
+        get :search
+      end
+    end
+    match '/articles/search/(sector_id/:sector_id)(/page/:page)' => '/v1/articles#search',:via=> :get
     root 'articles#index'
   end
-
+  
   resources :articles
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

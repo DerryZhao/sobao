@@ -3,7 +3,7 @@
   <ol class="list-unstyled">
     <%Sector.order('rank desc').each do |s|%>
       <li>
-        <%=link_to s.name.capitalize,'#'%>
+        <%=link_to s.name.capitalize,filter(s.id,params[:page])%>
         (<%=s.articles_count%>)
       </li>
     <%end%>

@@ -9,9 +9,15 @@ class V1::ArticlesController < ApplicationController
   def show
     @title = @article.name
   end
+
+  def search
+    @articles = Article.search(params[:sector_id],params[:page])
+    render 'index'
+  end
   
   private
   	def set_article
       @article = Article.find(params[:id])
+      @article.hit
     end
 end
