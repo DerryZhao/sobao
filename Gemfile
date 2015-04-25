@@ -37,6 +37,7 @@ gem 'will_paginate-bootstrap'
 # gem 'unicorn'
 gem 'capistrano',  '~> 3.1'
 gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rvm'
 # Use Capistrano for deployment
 # gem 'capistrano-rails'#, group: :development
 
