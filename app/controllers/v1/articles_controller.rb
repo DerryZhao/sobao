@@ -3,7 +3,7 @@ class V1::ArticlesController < ApplicationController
   before_action :set_article, only: [:show]
 
   def index
-  	@articles = Article.order('created_at desc').paginate :per_page=>2,:page=>params[:page]||1
+  	@articles = Article.order('created_at desc').paginate :per_page=>20,:page=>params[:page]||1
   end
 
   def show
