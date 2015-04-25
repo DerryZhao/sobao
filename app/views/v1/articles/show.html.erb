@@ -1,10 +1,50 @@
 <div class="row-fluid">
 	<div class="span12">
 	  <h3>
-	    <%=@article.name%>.
+	    
 	  </h3>
 	  <p>
-	    <%= raw @article.content%>
+	    
 	  </p>
 	</div>
 </div>
+<article>
+	<div class="heading">
+		<h2><%=@article.name%>.</h2>
+	</div>
+
+	<div class="content">
+		<!-- <img src="images/img1.jpg" width="100%"/> -->
+		<p><%= raw @article.content%></p>
+	</div>
+	<div class="info">
+     <div class = row>
+        <div class="col-md-3 blog-post-meta">
+          <small>分类:&nbsp;</small> 
+          <%=link_to @article.sector.name,filter(@article.sector_id,nil)%>
+        </div>
+        <div class="col-md-5 blog-post-meta">
+          <small>发布时间:&nbsp;</small> 
+          <%=@article.created_at.strftime('%Y-%m-%d %H:%M')%>
+        </div>
+        <div class="col-md-4 blog-post-meta">
+          <small>浏览量</small> 
+          (<%=@article.hit_count%>)
+        </div>
+     </div>
+  </div>
+</article>
+
+<!-- <section>
+	<h4>发表评论:</h4>
+	
+	<form id="contact-form" method="post">
+	        <label><input name="email" value="Email" onBlur="if(this.value=='') this.value='Email'" onFocus="if(this.value =='Email' ) this.value=''" /></label>
+	        <label><input name="subject" value="Subject" onBlur="if(this.value=='') this.value='Subject'" onFocus="if(this.value =='Subject' ) this.value=''" /></label>
+	        <textarea onBlur="if(this.value=='') this.value='Message'" onFocus="if(this.value =='Message' ) this.value=''">Message</textarea>
+	        <div class="buttons">
+	            <a href="#" onClick="document.getElementById('contact-form').reset()">取消</a>
+	            <a href="#" onClick="document.getElementById('contact-form').submit()">发表</a>
+	        </div>											
+	</form>
+</section> -->

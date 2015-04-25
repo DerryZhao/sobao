@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<title>好博文</title>
+	<meta name="description" content="Free Responsive Html5 Css3 Templates Designed by Kimmy">
+	<meta name="author" content="zhq">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+  <!-- <link href='./images/favicon.ico' rel='icon' type='image/x-icon'/> -->
+    
+</head>
+<body>
+<div class="wrap-body zerogrid">
+<header>
+	<div class="wrap-header">
+		
+		<div id="logo">
+			<a href="http://www.dglives.com"><h1>好博文</h1></a>
+			<p>要做的事情总找得出时间和机会；不愿意做的事情也总能找得出借口</p>
+		</div>
+		
+		<nav>
+			<div class="wrap-nav">
+				<%=render 'layouts/web_site/header'%>
+			</div>
+		</nav>
+		<div class="top">
+			<!-- <div class="socials">
+			<ul>
+					<li><a href="#" title="facebook"><img src="<%=asset_path('socials/facebook-32x32.png')%>"/></a></li>
+					<li><a href="#" title="google"><img src="<%=asset_path('socials/google-32x32.png')%>"/></a></li>
+					<li><a href="#" title="twitter"><img src="<%=asset_path('socials/twitter-32x32.png')%>"/></a></li>
+					<li><a href="#" title="rss"><img src="<%=asset_path('socials/rss-32x32.png')%>"/></a></li>
+					<li><a href="#" title="youtube"><img src="<%=asset_path('socials/youtube-32x32.png')%>"/></a></li>
+				</ul>
+			</div> -->
+			<div id="search">
+				<div class="glyphicon glyphicon-search button-search",value='Search'></div>
+				<input type="text" value="Search..." onfocus="if (this.value == &#39;Search...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search...&#39;;}">
+			</div>
+		</div>
+	</div>
+</header>
+<section id="content">
+	<div class="wrap-content">
+		<div class="row block">
+			<div id="main-content" class="col-2-3">
+				<div class="wrap-col">
+					<%= yield%>
+				</div>
+			</div>
+			<div id="sidebar" class="col-1-3">
+				<div class="wrap-col">
+					<%=render 'layouts/web_site/about'%>
+					<%=render 'layouts/web_site/sector'%>
+					<%=render 'layouts/web_site/friendly_link'%>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<footer>
+	<%=render 'layouts/web_site/footer'%>
+</footer>
+</div>
+</body>
+</html>

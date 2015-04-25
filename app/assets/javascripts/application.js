@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require kindeditor
+//= require html5
+//= require css3-mediaqueries
 //= require twitter/bootstrap
 //= require turbolinks
 //= require twitter/bootstrap/transition

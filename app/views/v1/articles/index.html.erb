@@ -1,29 +1,30 @@
-<div class="blog-post">
-    <%@articles.each do |article|%>
-      <h3 ><%=link_to article.name, v1_article_path(article)%></h3>
-      <p class="blog-post-meta">
-      	<small>分类:&nbsp;</small>
-      	<strong><%=article.sector.name%></strong>
-      </p>
-      <p>
-      	<%=truncate(ignore_html(article.content) ,:length=>130)%><br>
-      </p>
-      <div class = row>
-        <div class="col-md-5 blog-post-meta">
-        	<small>发布时间:&nbsp;</small> 
-        	<%=article.created_at.strftime('%Y-%m-%d %H:%M')%>
+<%@articles.each do |article|%>
+<article>
+  <div class="heading">
+    <h2><%=link_to article.name, v1_article_path(article)%></h2>
+  </div>
+  <div class="content">
+    <!-- <img src="images/img1.jpg" width="250px" height="100px"/> -->
+    <p><%=truncate(ignore_html(article.content) ,:length=>130)%></p>
+  </div>
+  <div class="info">
+     <div class = row>
+        <div class="col-md-3 blog-post-meta">
+          <small>分类:&nbsp;</small> 
+          <%=link_to article.sector.name,filter(article.sector_id,nil)%>
         </div>
-        <div class="col-md-7 blog-post-meta">
+        <div class="col-md-5 blog-post-meta">
+          <small>发布时间:&nbsp;</small> 
+          <%=article.created_at.strftime('%Y-%m-%d %H:%M')%>
+        </div>
+        <div class="col-md-4 blog-post-meta">
           <small>浏览量</small> 
           (<%=article.hit_count%>)
         </div>
-        <!-- <div class="col-md-4 blog-post-meta ">
-          <small>评论数</small> 
-          (<%=article.hit_count%>)
-        </div> -->
-      </div>
-    <%end%>
-</div>
+     </div>
+  </div>
+</article>
+<%end%>
 <nav>
   <%= will_paginate @articles,:previous_label=>'上一页',:next_label=>'下一页',renderer: BootstrapPagination::Rails%>
 </nav>

@@ -1,11 +1,13 @@
-<div class="sidebar-module sidebar-module-inset">
-  <h4>分类导航</h4>
-  <ol class="list-unstyled">
-    <%Sector.order('rank desc').each do |s|%>
-      <li>
-        <%=link_to s.name.capitalize,filter(s.id,params[:page])%>
-        (<%=s.articles_count%>)
-      </li>
-    <%end%>
-  </ol>
+<div class="box">
+	<div class="heading"><h2>分类</h2></div>
+	<div class="content">
+		<ul>
+			<%Sector.order('rank desc').each do |s|%>
+		      <li>
+		        <%=link_to s.name.capitalize,filter(s.id,params[:page])%>
+		        (<%=s.articles_count%>)
+		      </li>
+		    <%end%>
+		</ul>
+	</div>
 </div>

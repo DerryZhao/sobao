@@ -13,5 +13,7 @@
  *= require_tree .
  *= require bootstrap_and_overrides
  *= require style
+ *= require responsive
+ *= require zerogrid
  *= require_self
  */
