@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :users do
+    collection do
+      get :logn
+      post :login
+      post :lognout
+    end
+  end
 
   resources :sectors
   namespace :v1 do

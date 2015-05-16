@@ -1,5 +1,6 @@
 class V1::ArticlesController < ApplicationController
   layout 'blog'
+  skip_before_filter :authenticate
   before_action :set_article, only: [:show]
 
   def index
