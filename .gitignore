@@ -9,7 +9,7 @@
 /Gemfile.lock
 /config/deploy/*
 /config/deploy.rb
-/public/*
+#/public/*
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
